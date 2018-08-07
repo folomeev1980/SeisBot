@@ -1,1 +1,4 @@
 pyTelegramBotAPI
+requests==2.7.0
+telebot==0.0.3
+CherryPy==10.2.2
