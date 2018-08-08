@@ -13,7 +13,3 @@ def repeat_all_messages(message): # Название функции не игр�
 
 if __name__ == '__main__':
      bot.polling(none_stop=True)
-
-#test
-#test2
-#test3
