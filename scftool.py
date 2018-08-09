@@ -29,7 +29,7 @@ def vessel_info(vessel_name,vessel_text):
     end_pos=vessel_text.find('AIS Source:')
     vessel_text=vessel_text[start_pos:end_pos].strip()
     line=[]
-
+    res=[]
     start_l1=0
     end_l1=vessel_text.find('Vessel')
     start_l2=vessel_text.find('Area:')
@@ -52,11 +52,14 @@ def vessel_info(vessel_name,vessel_text):
     for j in range(0,5,1):
         for i in d:
           line[j]=line[j].replace(i, '')
-    print(vessel_name)
+
+
+    res.append(vessel_name)
     for i in line:
         if i!=line[2]:
-          print(i)
-    print("")
+          res.append(i)
+    res.append(" ")
+    return res
 
 
 
