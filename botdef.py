@@ -16,5 +16,3 @@ def geometry(sourse_int=50, reciver_int=12.5, num_of_chan=480, offset=135, cable
     print("Минимальный BIN офсет  :    ", minbinoffset)
     print("Максимальный BIN офсет :    ", maxbinoffset)
 
-def geombot():
-    bot.send_message(message.chat.id, "Введите интервал взрыва")

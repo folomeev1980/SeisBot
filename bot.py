@@ -1,5 +1,5 @@
 import telebot
-import botdef
+import scftool
 
 #main variables
 TOKEN = '513308297:AAFxvSsa6hDNk238pON8i3j-nOGSlmygitU'
@@ -10,13 +10,30 @@ bot = telebot.TeleBot(TOKEN)
 
 
 
-@bot.message_handler(commands=['geom'])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@bot.message_handler(commands=['scf'])
 
 def handle_geom(message):
-        bot.send_message(message.chat.id, "Введите интервал между ПВ?")
-
-
-        bot.send_message(message.chat.id, "Введите интервал между ПП?")
+    bot.send_message(message.chat.id, scftool.vessel_info("VYACHESLAV TIKHONOV",scftool.tikhonov_text))
+    bot.send_message(message.chat.id, scftool.vessel_info("IVAN GUBKIN", scftool.gubkin_text))
 
 
 @bot.message_handler(content_types=["text"])
