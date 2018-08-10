@@ -33,7 +33,7 @@ def handle_smng(message):
    bot.send_message(message.chat.id, smngtool.sha)
    bot.send_message(message.chat.id, smngtool.i5)
 
-@bot.message_handler(commands=['adult'])
+@bot.message_handler(commands=['adult','ad'])
 def send_adult(message):
     for i in adultsender.linksAdult:
         url = i
@@ -45,7 +45,53 @@ def send_adult(message):
         bot.send_photo(message.chat.id, img, reply_to_message_id=message.message_id)
         img.close()
 
+@bot.message_handler(commands=['adult2','ad2'])
+def send_adult2(message):
+    for i in adultsender.linksAdult2:
+        url = i
+        f = open('out.jpg', 'wb')
+        f.write(urllib.request.urlopen(url).read())
+        f.close()
+        bot.send_chat_action(message.chat.id, 'upload_photo')
+        img = open('out.jpg', 'rb')
+        bot.send_photo(message.chat.id, img, reply_to_message_id=message.message_id)
+        img.close()
 
+@bot.message_handler(commands=['adult3','ad3'])
+def send_adult3(message):
+    for i in adultsender.linksAdult3:
+        url = i
+        f = open('out.jpg', 'wb')
+        f.write(urllib.request.urlopen(url).read())
+        f.close()
+        bot.send_chat_action(message.chat.id, 'upload_photo')
+        img = open('out.jpg', 'rb')
+        bot.send_photo(message.chat.id, img, reply_to_message_id=message.message_id)
+        img.close()
+
+@bot.message_handler(commands=['adult4','ad4'])
+def send_adult4(message):
+    for i in adultsender.linksAdult4:
+        url = i
+        f = open('out.jpg', 'wb')
+        f.write(urllib.request.urlopen(url).read())
+        f.close()
+        bot.send_chat_action(message.chat.id, 'upload_photo')
+        img = open('out.jpg', 'rb')
+        bot.send_photo(message.chat.id, img, reply_to_message_id=message.message_id)
+        img.close()
+
+@bot.message_handler(commands=['adult5', 'ad5'])
+def send_adult5(message):
+    for i in adultsender.linksAdult5:
+        url = i
+        f = open('out.jpg', 'wb')
+        f.write(urllib.request.urlopen(url).read())
+        f.close()
+        bot.send_chat_action(message.chat.id, 'upload_photo')
+        img = open('out.jpg', 'rb')
+        bot.send_photo(message.chat.id, img, reply_to_message_id=message.message_id)
+        img.close()
 
 
 
