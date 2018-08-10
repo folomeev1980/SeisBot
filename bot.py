@@ -2,6 +2,8 @@ import telebot
 import scftool
 import smngtool
 import config
+import urllib
+import adultsender
 
 
 
@@ -32,10 +34,16 @@ def handle_smng(message):
    bot.send_message(message.chat.id, smngtool.i5)
 
 @bot.message_handler(commands=['adult'])
-def handle_adult(message):
-    # sendPhoto
-    photo ='http://img-f.photosight.ru/395/6788021_thumb.jpg'
-    bot.send_photo(message.chat_id, photo)
+def send_adult(message):
+    for i in adultsender.linksAdult:
+        url = i
+        f = open('out.jpg', 'wb')
+        f.write(urllib.request.urlopen(url).read())
+        f.close()
+        bot.send_chat_action(message.chat.id, 'upload_photo')
+        img = open('out.jpg', 'rb')
+        bot.send_photo(message.chat.id, img, reply_to_message_id=message.message_id)
+        img.close()
 
 
 

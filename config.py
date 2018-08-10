@@ -1,3 +1,5 @@
+import requests
+import datetime
 TOKEN = '513308297:AAFxvSsa6hDNk238pON8i3j-nOGSlmygitU'
 
 def vessel_info(vessel_name,vessel_text):
@@ -43,3 +45,41 @@ help="Привет Это SeisBot, здесь ты можешь узнать:\n\
 /vt  - местоположение Vyacheslav Tikhonov;\n\
 /ig  - местоположение Ivan Gubkin;\n\
 /smng- местоположение судов Компании SMNG;\n"
+
+
+def adult_input(zeroOrone, days):
+    now = datetime.datetime.now()
+    i = 0
+    links = []
+    cooc = {'adult_mode': '1'}
+    photosight = "http://www.photosight.ru/outrun/date/" + str(now.year) + "/" + str(now.month) + "/" + str(
+        now.day - days) + "/"
+
+    if zeroOrone == True:
+        response = requests.get(photosight, cookies=cooc)
+    else:
+        response = requests.get(photosight)
+    if response.status_code == 200:
+        response.encoding
+        'utf-8'
+        txt = response.text
+
+        count = txt.count("http://img")
+        while i <= count - 1:
+            b = txt.find("http://img")
+            links.append(txt[b:b + 39] + "thumb.jpg")
+            txt = txt[b + 40:]
+            i = i + 1
+    else:
+        print("Нет доступа к сайту")
+    return links
+
+
+def only_adult(days):
+    a = adult_input(True, days)
+    b = adult_input(False, days)
+    adultLinks = []
+    for i in a:
+        if i not in b:
+            adultLinks.append(i)
+    return adultLinks
