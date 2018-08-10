@@ -31,3 +31,4 @@ pr='\n'.join(config.vessel_info("PROFFESOR RJABINKIN",text[4]))
 sha='\n'.join(config.vessel_info("AKADEMIK SHATSKIY",text[5]))
 i5='\n'.join(config.vessel_info("ISKATEL 5",text[6]))
 
+print(i5)
