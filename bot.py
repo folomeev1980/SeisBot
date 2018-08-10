@@ -30,10 +30,11 @@ def handle_smng(message):
    bot.send_message(message.chat.id, smngtool.pr)
    bot.send_message(message.chat.id, smngtool.sha)
    bot.send_message(message.chat.id, smngtool.i5)
+
 @bot.message_handler(commands=['adult'])
 def handle_adult(message):
     # sendPhoto
-    photo = open('http://img-f.photosight.ru/395/6788021_xlarge.jpg', 'rb')
+    photo = open('http://img-f.photosight.ru/395/6788021_thumb.jpg', 'rb')
     bot.send_photo(message.chat_id, photo)
     file_id = 'AAAaaaZZZzzz'
     bot.send_photo(message.chat_id, file_id)
