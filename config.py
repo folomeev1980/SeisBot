@@ -44,7 +44,9 @@ help="Привет Это SeisBot, здесь ты можешь узнать:\n\
 /scf - местоположение судов Компании SCF;\n\
 /vt  - местоположение Vyacheslav Tikhonov;\n\
 /ig  - местоположение Ivan Gubkin;\n\
-/smng- местоположение судов Компании SMNG;\n"
+/smng- местоположение судов Компании SMNG;\n\
+/vl  - курсы валют;"
+
 
 
 def adult_input(zeroOrone, days):
