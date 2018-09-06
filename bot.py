@@ -131,5 +131,5 @@ def repeat_all_messages(message):
     bot.send_message(message.chat.id, config.help)
 
 server.run(host='0.0.0.0', port=port)
-if __name__ == '__main__':
+#if __name__ == '__main__':
    # bot.polling(none_stop=True, interval=5)
