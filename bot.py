@@ -6,7 +6,7 @@ import logging
 import urllib
 import valut
 import adultsender
-
+import telegram
 import os
 from telegram.ext import Updater, MessageHandler, Filters, CommandHandler
 
@@ -24,6 +24,7 @@ def vl(bot, update):
     update.message.reply_text(valut.valuta)
 
 
+
 def scf(bot, update):
     update.message.reply_text(scftool.vt)
     update.message.reply_text(scftool.ig)
@@ -36,6 +37,18 @@ def smng(bot, update):
     update.message.reply_text(smngtool.pr)
     update.message.reply_text(smngtool.sha)
     update.message.reply_text(smngtool.i5)
+
+
+
+def ad(bot,update):
+    for i in adultsender.linksAdult:
+        url = i
+        f = open('out.jpg', 'wb')
+        f.write(urllib.request.urlopen(url).read())
+        f.close()
+        file = bot.getFile(update.message.photo.file_id)
+        print("file_id: " + str(update.message.photo.file_id))
+        file.download('out.jpg')
 
 
 updater = Updater(TOKEN)
@@ -51,6 +64,9 @@ dispatcher.add_handler(scf_handler)
 
 smng_handler = CommandHandler('smng', smng)
 dispatcher.add_handler(smng_handler)
+
+ad_handler = CommandHandler('ad', ad)
+dispatcher.add_handler(ad_handler)
 
 #    Messages
 
