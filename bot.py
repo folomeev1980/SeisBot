@@ -29,12 +29,17 @@ updater.dispatcher.add_handler(MessageHandler(Filters.text, echo))
 
 
 
+
+
+
+#----------------
+
 updater.start_webhook(listen="0.0.0.0",
                       port=PORT,
                       url_path=TOKEN)
 updater.bot.setWebhook("https://seisbot.herokuapp.com/" + TOKEN)
 updater.idle()
-
+#---------------------
 
 #if __name__ == '__main__':
   #  server.run(host="0.0.0.0", port=os.environ.get('PORT', 8443))
