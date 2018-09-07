@@ -6,7 +6,6 @@ import urllib
 import valut
 import adultsender
 import telegram
-import mp3
 import os
 from telegram.ext import Updater, MessageHandler, Filters, CommandHandler
 
@@ -17,7 +16,7 @@ PORT = int(os.environ.get('PORT', '5000'))
 
 def update(bot,update):
     update.message.reply_text(str(update.message))
-    update.message.reply_text(mp3.a)
+
 
 
 def echo(bot, update):
