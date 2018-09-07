@@ -9,14 +9,14 @@ import os
 from flask import Flask, request
 server = Flask(__name__)
 bot = telebot.TeleBot(config.TOKEN)
-port = int(os.environ.get("PORT", 8443))
+port = int(os.environ.get("PORT", 5000))
 
 #---------------------------------------------------------
 @server.route('/')
 def webhook():
     bot.remove_webhook()
     bot.set_webhook(url="https://seisbot.herokuapp.com/bot") #ссылку изменил
-    return "!", 200
+    return "ok", 200
 
 @server.route("/bot", methods=['POST'])
 def getMessage():
