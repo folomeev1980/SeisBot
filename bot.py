@@ -24,6 +24,9 @@ def getMessage():
         [telebot.types.Update.de_json(request.stream.read().decode("utf-8")).message])
     return "ok", 200
 
+
+server.run(host='0.0.0.0', port=port)
+
 @bot.message_handler(commands=['start', 'help'])
 def send_welcome(message):
     bot.reply_to(message, config.help)
