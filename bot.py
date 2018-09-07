@@ -49,7 +49,7 @@ dispatcher.add_handler(vl_handler)
 scf_handler = CommandHandler('scf', scf)
 dispatcher.add_handler(scf_handler)
 
-smng_handler = CommandHandler('scf', scf)
+smng_handler = CommandHandler('smng', smng)
 dispatcher.add_handler(smng_handler)
 
 #    Messages
