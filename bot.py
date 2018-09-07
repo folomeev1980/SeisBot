@@ -10,7 +10,7 @@ from flask import Flask, request
 import os
 from telegram.ext import Updater, MessageHandler, Filters
 
-TOKEN = os.environ.get(config.TOKEN, config.TOKEN)
+TOKEN = os.environ.get('TOKEN', config.TOKEN)
 PORT = int(os.environ.get('PORT', '5000'))
 bot = telebot.TeleBot(config.TOKEN)
 
