@@ -131,7 +131,7 @@ def webhook():
     return "!", 200
 
 
-server.run(host="0.0.0.0", port=os.environ.get('PORT', 5000))
+server.run(host="0.0.0.0", port=os.environ.get('PORT', 8443))
 server = Flask(__name__)
 #---------------------------------------------------------------
 
