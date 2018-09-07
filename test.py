@@ -27,4 +27,4 @@ ig='\n'.join(config.vessel_info("IVAN GUBKIN",gubkin_text))
 
 print(config.vessel_info("VYACHESLAV TIKHONOV",tikhonov_text))
 
-print('\n'.join(config.vessel_info("VYACHESLAV TIKHONOV",tikhonov_text)))
+print('\n'.join(config.vessel_info_new("VYACHESLAV TIKHONOV",tikhonov_text)))
