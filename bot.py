@@ -6,7 +6,7 @@ import urllib
 import valut
 import adultsender
 import os
-from __future__ import unicode_literals
+#from __future__ import unicode_literals
 import json
 from flask import Flask, request
 app = Flask(__name__)
