@@ -9,7 +9,7 @@ import os
 from flask import Flask, request
 server = Flask(__name__)
 bot = telebot.TeleBot(config.TOKEN)
-port = int(os.environ.get("PORT", 5000))
+port = int(os.environ.get("PORT", 8443))
 
 #---------------------------------------------------------
 @server.route('/')
@@ -130,8 +130,9 @@ def send_adult5(message):
 def repeat_all_messages(message):
     bot.send_message(message.chat.id, config.help)
 
-'''
+
 if __name__ == '__main__':
-    bot.polling(none_stop=True, interval=5)
+    server.run(host='0.0.0.0', port=port)
 '''
-server.run(host='0.0.0.0', port=port)
+    bot.polling(none_stop=True, interval=5)
+   '''
