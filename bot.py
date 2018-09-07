@@ -15,7 +15,7 @@ TOKEN = os.environ.get('TOKEN', config.TOKEN)
 PORT = int(os.environ.get('PORT', '5000'))
 
 def update(bot,update):
-    update.message.reply_text(update.message)
+    update.message.reply_text(update.message.chat_id)
 
 def echo(bot, update):
     update.message.reply_text(config.help)
@@ -37,7 +37,7 @@ def smng(bot, update):
     update.message.reply_text(smngtool.al)
     update.message.reply_text(smngtool.pr)
     update.message.reply_text(smngtool.sha)
-    update.message.reply_text(smngtool.i5)
+    #update.message.reply_text(smngtool.i5)
 
 
 
@@ -100,7 +100,7 @@ dispatcher.add_handler(smng_handler)
 ad_handler = CommandHandler('ad', ad)
 dispatcher.add_handler(ad_handler)
 
-update_handler = CommandHandler('up', update)
+update_handler = CommandHandler('update', update)
 dispatcher.add_handler(update_handler)
 
 #    Messages

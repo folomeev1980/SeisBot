@@ -1,55 +1,30 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-"""Simple Bot to reply to Telegram messages.
-This is built on the API wrapper, see echobot2.py to see the same example built
-on the telegram.ext bot framework.
-This program is dedicated to the public domain under the CC0 license.
-"""
+import scftool
+import smngtool
+import config
 import logging
+import urllib
+import valut
+import adultsender
 import telegram
-from telegram.error import NetworkError, Unauthorized
-from time import sleep
+import os
+from telegram.ext import Updater, MessageHandler, Filters, CommandHandler
+
+logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
+
+TOKEN = os.environ.get('TOKEN', config.TOKEN)
+PORT = int(os.environ.get('PORT', '5000'))
+
+def update(bot,update):
+    update.message.reply_text(update.message.chat)
+def vl(bot, update):
+    update.message.reply_text(valut.valuta)
+
+updater = Updater(TOKEN)
+dispatcher = updater.dispatcher
+
+#    Commands
 
 
-update_id = None
 
+print()
 
-def main():
-    """Run the bot."""
-    global update_id
-    # Telegram Bot Authorization Token
-    bot = telegram.Bot('513308297:AAFxvSsa6hDNk238pON8i3j-nOGSlmygitU')
-
-    # get the first pending update_id, this is so we can skip over it in case
-    # we get an "Unauthorized" exception.
-    try:
-        update_id = bot.get_updates()[0].update_id
-    except IndexError:
-        update_id = None
-
-    logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-
-    while True:
-        try:
-            echo(bot)
-        except NetworkError:
-            sleep(1)
-        except Unauthorized:
-            # The user has removed or blocked the bot.
-            update_id += 1
-
-
-def echo(bot):
-    """Echo the message the user sent."""
-    global update_id
-    # Request updates after the last update_id
-    for update in bot.get_updates(offset=update_id, timeout=10):
-        update_id = update.update_id + 1
-
-        if update.message:  # your bot can receive updates without messages
-            # Reply to the message
-            update.message.reply_text(update.message.text)
-
-
-#if __name__ == '__main__':
-main()
