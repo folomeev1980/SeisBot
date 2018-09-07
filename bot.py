@@ -131,12 +131,13 @@ def webhook():
     return "!", 200
 
 
-server.run(host="0.0.0.0", port=os.environ.get('PORT', 8443))
-server = Flask(__name__)
+
 #---------------------------------------------------------------
 
 
-#if __name__ == '__main__':
+if __name__ == '__main__':
+    server.run(host="0.0.0.0", port=os.environ.get('PORT', 8443))
+    server = Flask(__name__)
 #server.run(host='0.0.0.0', port=port)
 '''
     bot.polling(none_stop=True, interval=5)
