@@ -27,7 +27,7 @@ def vessel_info(vessel_name,vessel_text):
     line.append(vessel_text[start_l5:end_l5].strip())
 
     d=['<strong>','<span>','div','</span>','</strong>','</strong>',
-       '</ >', '<','/>','span','\r\n','/','/a>','group-ib">','  ','   ','class="vertical-offset-10']
+       '</ >', '<','/>','span','\r\n','/','/a>','group-ib">','  ','   ','\n\n  ','\n\n\n  ','class="vertical-offset-10']
     for j in range(0,5,1):
         for i in d:
           line[j]=line[j].replace(i, '')

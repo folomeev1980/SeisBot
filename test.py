@@ -25,4 +25,4 @@ vt='\n'.join(config.vessel_info("VYACHESLAV TIKHONOV",tikhonov_text))
 ig='\n'.join(config.vessel_info("IVAN GUBKIN",gubkin_text))
 
 
-print(config.remove_html_markup(tikhonov_text))
+print(config.vessel_info("VYACHESLAV TIKHONOV",tikhonov_text))
