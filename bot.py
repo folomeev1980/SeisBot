@@ -46,9 +46,21 @@ def ad(bot,update):
         f = open('out.jpg', 'wb')
         f.write(urllib.request.urlopen(url).read())
         f.close()
-        file = bot.getFile(update.message.photo.file_id)
-        print("file_id: " + str(update.message.photo.file_id))
-        file.download('out.jpg')
+        bot.send_chat_action(update.message.chat.id, 'upload_photo')
+        img = open('out.jpg', 'rb')
+        bot.send_photo(update.message.chat.id, img, reply_to_message_id=update.message.message_id)
+        img.close()
+
+
+
+
+
+
+
+
+
+
+
 
 
 updater = Updater(TOKEN)
@@ -64,6 +76,7 @@ dispatcher.add_handler(scf_handler)
 
 smng_handler = CommandHandler('smng', smng)
 dispatcher.add_handler(smng_handler)
+
 
 ad_handler = CommandHandler('ad', ad)
 dispatcher.add_handler(ad_handler)
