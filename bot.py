@@ -15,7 +15,7 @@ TOKEN = os.environ.get('TOKEN', config.TOKEN)
 PORT = int(os.environ.get('PORT', '5000'))
 
 def update(bot,update):
-    update.message.reply_text(update.message.chat_id)
+    update.message.reply_text(str(update.message))
 
 def echo(bot, update):
     update.message.reply_text(config.help)
