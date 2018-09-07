@@ -5,8 +5,7 @@ import config
 import urllib
 import valut
 import adultsender
-import os
-from flask import Flask, request
+
 import os
 from telegram.ext import Updater, MessageHandler, Filters
 
@@ -121,6 +120,8 @@ def repeat_all_messages(message):
     bot.send_message(message.chat.id, config.help)
 
 
+
+
 def echo(bot, update):
     update.message.reply_text('Bot answer: ' + update.message.text)
 
@@ -128,7 +129,7 @@ def echo(bot, update):
 updater = Updater(TOKEN)
 
 # add handlers
-updater.dispatcher.add_handler(MessageHandler(Filters.text, repeat_all_messages))
+updater.dispatcher.add_handler(MessageHandler(Filters.text, echo))
 
 
 
