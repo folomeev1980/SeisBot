@@ -1,4 +1,3 @@
-import telebot
 import scftool
 import smngtool
 import config
@@ -15,6 +14,8 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 TOKEN = os.environ.get('TOKEN', config.TOKEN)
 PORT = int(os.environ.get('PORT', '5000'))
 
+def update(bot,update):
+    update.message.reply_text(update.message)
 
 def echo(bot, update):
     update.message.reply_text(config.help)
@@ -42,6 +43,24 @@ def smng(bot, update):
 
 def ad(bot,update):
     for i in adultsender.linksAdult:
+        url = i
+        f = open('out.jpg', 'wb')
+        f.write(urllib.request.urlopen(url).read())
+        f.close()
+        bot.send_chat_action(update.message.chat.id, 'upload_photo')
+        img = open('out.jpg', 'rb')
+        bot.send_photo(update.message.chat.id, img, reply_to_message_id=update.message.message_id)
+        img.close()
+    for i in adultsender.linksAdult2:
+        url = i
+        f = open('out.jpg', 'wb')
+        f.write(urllib.request.urlopen(url).read())
+        f.close()
+        bot.send_chat_action(update.message.chat.id, 'upload_photo')
+        img = open('out.jpg', 'rb')
+        bot.send_photo(update.message.chat.id, img, reply_to_message_id=update.message.message_id)
+        img.close()
+    for i in adultsender.linksAdult3:
         url = i
         f = open('out.jpg', 'wb')
         f.write(urllib.request.urlopen(url).read())
@@ -80,6 +99,9 @@ dispatcher.add_handler(smng_handler)
 
 ad_handler = CommandHandler('ad', ad)
 dispatcher.add_handler(ad_handler)
+
+update_handler = CommandHandler('up', update)
+dispatcher.add_handler(update_handler)
 
 #    Messages
 
