@@ -128,7 +128,8 @@ def echo(bot, update):
 updater = Updater(TOKEN)
 
 # add handlers
-updater.dispatcher.add_handler(MessageHandler(Filters.text, echo))
+updater.dispatcher.add_handler(MessageHandler(Filters.text, repeat_all_messages))
+
 
 
 updater.start_webhook(listen="0.0.0.0",
