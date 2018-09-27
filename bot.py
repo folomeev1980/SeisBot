@@ -32,6 +32,10 @@ def scf(bot, update):
     update.message.reply_text(scftool.vt)
     update.message.reply_text(scftool.ig)
 
+def ps(bot, update):
+    update.message.reply_text(config.ps)
+
+
 def smng(bot, update):
     update.message.reply_text(smngtool.ep)
     update.message.reply_text(smngtool.ga)
@@ -97,6 +101,9 @@ dispatcher.add_handler(scf_handler)
 
 smng_handler = CommandHandler('smng', smng)
 dispatcher.add_handler(smng_handler)
+
+ps_handler = CommandHandler('ps', ps)
+dispatcher.add_handler(ps_handler)
 
 
 ad_handler = CommandHandler('ad', ad)

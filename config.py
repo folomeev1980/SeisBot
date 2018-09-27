@@ -86,6 +86,13 @@ def only_adult(days):
             adultLinks.append(i)
     return adultLinks
 
+ps="ps: Arseniy_boy, lazarev02051980\n\n\
+\n\
+\n\
+\n\
+\n\
+"
+
 def remove_html_markup(s):
     tag = False
     quote = False
