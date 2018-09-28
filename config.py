@@ -86,9 +86,12 @@ def only_adult(days):
             adultLinks.append(i)
     return adultLinks
 
-ps="ps: Arseniy_boy, лазарев02051980\n\n\
-http://publicbg.mjs.bg/BgInfo,\n\
-Молба вх.номер: 8836/2017,Парола(ПИН): 202104\n\
+ps="ps: Arseniy_boy, лазарев02051980\n\
+http://publicbg.mjs.bg/BgInfo\n\
+Молба вх.номер:\n\
+8836/2017\n\
+Парола(ПИН):\n\
+202104\n\
 \n\
 \n\
 "
