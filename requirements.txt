@@ -1,7 +1,7 @@
 pyTelegramBotAPI
-requests==2.7.0
-telebot==0.0.3
-CherryPy==10.2.2
-Flask==1.0.2
-python-telegram-bot==11.1.0
-pytube==9.2.2
+requests
+telebot
+CherryPy
+Flask
+python-telegram-bot
+pytube
