@@ -27,12 +27,7 @@ vt1='\n'.join(config.vessel_info("VYACHESLAV TIKHONOV",tikhonov_text))
 ig='\n'.join(config.vessel_info("IVAN GUBKIN",gubkin_text))
 
 if vt1.rfind('; ">a')>0:
-    vt=vt1[0:vt1.rfind('; ">a')]
+    vt=vt1[0:(vt1.rfind('; ">a'))+1]
 else:
     vt=vt1
 
-#print(ig)
-
-#print(vt)
-#print(vt.rfind('; ">a'))
-#print(vt[1:188])
