@@ -4,4 +4,3 @@ telebot
 CherryPy
 Flask
 python-telegram-bot
-pytube

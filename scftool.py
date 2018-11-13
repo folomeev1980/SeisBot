@@ -20,10 +20,19 @@ if tikhonov_response.status_code == 200 and gubkin_response.status_code==200:
 else:
     print("Нет доступа к сайту marinetraffic")
 
-vt='\n'.join(config.vessel_info("VYACHESLAV TIKHONOV",tikhonov_text))
+
+
+
+vt1='\n'.join(config.vessel_info("VYACHESLAV TIKHONOV",tikhonov_text))
 ig='\n'.join(config.vessel_info("IVAN GUBKIN",gubkin_text))
 
+if vt1.rfind('; ">a')>0:
+    vt=vt1[0:vt1.rfind('; ">a')]
+else:
+    vt=vt1
 
+#print(ig)
 
-
-
+#print(vt)
+#print(vt.rfind('; ">a'))
+#print(vt[1:188])
