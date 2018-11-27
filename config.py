@@ -113,3 +113,6 @@ def remove_html_markup(s):
 
     return out
 
+
+if __name__=="__main__":
+    print(ps)
