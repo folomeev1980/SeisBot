@@ -32,31 +32,31 @@ def get_ship_info(vessel_name,url):
 
     soup = BeautifulSoup(html, "lxml")
     #print(soup)
-
-    tds = soup.find("div",class_="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-true")
-    print(tds)
-    tds=tds.find_all("p")
-
-
-
-    for i in tds:
-        if "Position Received" in str(i.text):
-       #     print(i.text)
-            res.append(i.text)
-        elif "ort:" in str(i.text):
-            #     print(i.text )
-            res.append(i.text)
-        elif "Area:" in str(i.text):
-       #     print(i.text )
-            res.append(i.text)
-        elif "Status:" in str(i.text):
-       #     print(i.text)
-            res.append(i.text)
-        elif "Speed/Course:" in str(i.text):
-        #    print(i.text)
-            res.append(i.text)
-        else:
-            pass
+    res=vessel_info(vessel_name,soup)
+    # tds = soup.find("div",class_="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-true")
+    # print(tds)
+    # tds=tds.find_all("p")
+    #
+    #
+    #
+    # for i in tds:
+    #     if "Position Received" in str(i.text):
+    #    #     print(i.text)
+    #         res.append(i.text)
+    #     elif "ort:" in str(i.text):
+    #         #     print(i.text )
+    #         res.append(i.text)
+    #     elif "Area:" in str(i.text):
+    #    #     print(i.text )
+    #         res.append(i.text)
+    #     elif "Status:" in str(i.text):
+    #    #     print(i.text)
+    #         res.append(i.text)
+    #     elif "Speed/Course:" in str(i.text):
+    #     #    print(i.text)
+    #         res.append(i.text)
+    #     else:
+    #         pass
     return res
 
 
