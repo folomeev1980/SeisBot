@@ -18,8 +18,9 @@ def get_ship_info(vessel_name,url):
         driver = webdriver.Chrome('chromedriver.exe', options=options)
         driver.get(url)
     except Exception as e:
+        pass
 
-        driver.quit()
+
 
     html = driver.page_source
 
