@@ -31,6 +31,7 @@ def get_ship_info(vessel_name,url):
     html = driver.page_source
 
     soup = BeautifulSoup(html, "lxml")
+    print(soup)
 
     tds = soup.find("div",class_="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-true").findAll("p")
     for i in tds:
