@@ -1,6 +1,60 @@
 import requests
 import datetime
+import requests
+import csv
+from bs4 import BeautifulSoup
+from selenium import webdriver
+from bs4 import BeautifulSoup
+from random import randint
+from time import sleep
+from progress.bar import Bar
+from openpyxl import Workbook, load_workbook
 TOKEN = '513308297:AAFxvSsa6hDNk238pON8i3j-nOGSlmygitU'
+
+def get_ship_info(vessel_name,url):
+    res=[]
+    res.append(vessel_name)
+
+    try:
+        options = webdriver.ChromeOptions()
+        options.add_argument('headless')
+        options.add_argument('window-size=1920x935')
+        driver = webdriver.Chrome('chromedriver.exe', options=options)
+        driver.get(url)
+    except Exception as e:
+
+        driver.quit()
+
+    html = driver.page_source
+
+    soup = BeautifulSoup(html, "lxml")
+
+    tds = soup.find("div",class_="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-true").findAll("p")
+    for i in tds:
+        if "Position Received" in str(i.text):
+       #     print(i.text)
+            res.append(i.text)
+        elif "ort:" in str(i.text):
+            #     print(i.text )
+            res.append(i.text)
+        elif "Area:" in str(i.text):
+       #     print(i.text )
+            res.append(i.text)
+        elif "Status:" in str(i.text):
+       #     print(i.text)
+            res.append(i.text)
+        elif "Speed/Course:" in str(i.text):
+        #    print(i.text)
+            res.append(i.text)
+        else:
+            pass
+    return res
+
+
+
+
+
+
 
 def vessel_info(vessel_name,vessel_text):
 
@@ -115,4 +169,5 @@ def remove_html_markup(s):
 
 
 if __name__=="__main__":
-    print(ps)
+  #  print(ps)
+  pass

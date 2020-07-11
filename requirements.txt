@@ -4,3 +4,5 @@ telebot
 CherryPy
 Flask
 python-telegram-bot
+bs4
+selenium
