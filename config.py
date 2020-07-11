@@ -34,6 +34,7 @@ def get_ship_info(vessel_name,url):
     #print(soup)
 
     tds = soup.find("div",class_="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-true")
+    print(soup)
     tds=tds.findAll("p")
 
 
