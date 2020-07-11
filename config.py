@@ -36,6 +36,8 @@ def get_ship_info(vessel_name,url):
     tds = soup.find("div",class_="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-true")
     tds=tds.findAll("p")
 
+
+
     for i in tds:
         if "Position Received" in str(i.text):
        #     print(i.text)
