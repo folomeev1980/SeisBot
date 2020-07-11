@@ -1,14 +1,10 @@
-import requests
+
 import datetime
 import requests
-import csv
-from bs4 import BeautifulSoup
+
 from selenium import webdriver
 from bs4 import BeautifulSoup
-from random import randint
-from time import sleep
-from progress.bar import Bar
-from openpyxl import Workbook, load_workbook
+
 TOKEN = '513308297:AAFxvSsa6hDNk238pON8i3j-nOGSlmygitU'
 
 def get_ship_info(vessel_name,url):
