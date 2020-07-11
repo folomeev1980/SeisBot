@@ -11,14 +11,14 @@ def get_ship_info(vessel_name,url):
     res=[]
     res.append(vessel_name)
 
-    try:
-        options = webdriver.ChromeOptions()
-        options.add_argument('headless')
-        options.add_argument('window-size=1920x935')
-        driver = webdriver.Chrome('chromedriver.exe', options=options)
-        driver.get(url)
-    except Exception as e:
-        pass
+    # try:
+    options = webdriver.ChromeOptions()
+    options.add_argument('headless')
+    options.add_argument('window-size=1920x935')
+    driver = webdriver.Chrome('chromedriver.exe', options=options)
+    driver.get(url)
+    # except Exception as e:
+    #     pass
 
 
 
