@@ -1,6 +1,7 @@
 
 import datetime
 import requests
+import os
 
 from selenium import webdriver
 from bs4 import BeautifulSoup
@@ -12,16 +13,21 @@ def get_ship_info(vessel_name,url):
     res.append(vessel_name)
 
     # try:
-    options = webdriver.ChromeOptions()
-    options.add_argument('headless')
-    options.add_argument('window-size=1920x935')
-    driver = webdriver.Chrome('chromedriver.exe', options=options)
-    driver.get(url)
+    # options = webdriver.ChromeOptions()
+    # options.add_argument('headless')
+    # options.add_argument('window-size=1920x935')
+    # driver = webdriver.Chrome('chromedriver.exe', options=options)
+    # driver.get(url)
     # except Exception as e:
     #     pass
 
-
-
+    chrome_options = webdriver.ChromeOptions()
+    chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+    chrome_options.add_argument("--headless")
+    chrome_options.add_argument("--disable-dev-shm-usage")
+    chrome_options.add_argument("--no-sandbox")
+    driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
+    driver.get(url)
     html = driver.page_source
 
     soup = BeautifulSoup(html, "lxml")
