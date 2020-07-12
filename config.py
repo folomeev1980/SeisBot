@@ -26,7 +26,7 @@ def get_ship_info(vessel_name,url):
     chrome_options.add_argument("--headless")
     # chrome_options.add_argument("--disable-dev-shm-usage")
     # chrome_options.add_argument("--no-sandbox")
-    options.add_argument('window-size=1920x935')
+    chrome_options.add_argument('window-size=1920x935')
     driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
     driver.get(url)
     html = driver.page_source
