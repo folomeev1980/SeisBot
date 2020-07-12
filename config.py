@@ -24,39 +24,40 @@ def get_ship_info(vessel_name,url):
     chrome_options = webdriver.ChromeOptions()
     chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
     chrome_options.add_argument("--headless")
-    chrome_options.add_argument("--disable-dev-shm-usage")
-    chrome_options.add_argument("--no-sandbox")
+    # chrome_options.add_argument("--disable-dev-shm-usage")
+    # chrome_options.add_argument("--no-sandbox")
+    options.add_argument('window-size=1920x935')
     driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
     driver.get(url)
     html = driver.page_source
 
     soup = BeautifulSoup(html, "lxml")
     #print(soup)
-    res=vessel_info(vessel_name,soup)
-    # tds = soup.find("div",class_="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-true")
-    # print(tds)
-    # tds=tds.find_all("p")
-    #
-    #
-    #
-    # for i in tds:
-    #     if "Position Received" in str(i.text):
-    #    #     print(i.text)
-    #         res.append(i.text)
-    #     elif "ort:" in str(i.text):
-    #         #     print(i.text )
-    #         res.append(i.text)
-    #     elif "Area:" in str(i.text):
-    #    #     print(i.text )
-    #         res.append(i.text)
-    #     elif "Status:" in str(i.text):
-    #    #     print(i.text)
-    #         res.append(i.text)
-    #     elif "Speed/Course:" in str(i.text):
-    #     #    print(i.text)
-    #         res.append(i.text)
-    #     else:
-    #         pass
+    #res=vessel_info(vessel_name,soup)
+    tds = soup.find("div",class_="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-true")
+    print(tds)
+    tds=tds.find_all("p")
+
+
+
+    for i in tds:
+        if "Position Received" in str(i.text):
+       #     print(i.text)
+            res.append(i.text)
+        elif "ort:" in str(i.text):
+            #     print(i.text )
+            res.append(i.text)
+        elif "Area:" in str(i.text):
+       #     print(i.text )
+            res.append(i.text)
+        elif "Status:" in str(i.text):
+       #     print(i.text)
+            res.append(i.text)
+        elif "Speed/Course:" in str(i.text):
+        #    print(i.text)
+            res.append(i.text)
+        else:
+            pass
     return res
 
 
